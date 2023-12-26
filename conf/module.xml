@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <!-- 네임스페이스 -->
+    <namespaces>
+        <namespace name="Kkigomi\RxModule\Debugbar" />
+    </namespaces>
+
+    <classes>
+        <class type="default" name="Src\Module" />
+        <class type="install" name="Src\Module" />
+    </classes>
+
+    <actions>
+        <!-- 설정 페이지 -->
+        <action name="dispDebugbarAdminConfig" class="Src\Module" />
+        <action name="getDebugbarHandle" class="Src\Module" />
+    </actions>
+
+    <eventHandlers>
+        <!-- shutdown 핸들러 등록 -->
+        <eventHandler before="moduleHandler.init" class="Src\EventHandler" method="beforeModuleHandlerInit" />
+        <!-- 디버그바 출력 -->
+        <eventHandler after="display" class="Src\EventHandler" method="afterDisplay" />
+        <eventHandler before="admin.dashboard" class="Src\EventHandler" method="adminDashboard" />
+    </eventHandlers>
+</module>

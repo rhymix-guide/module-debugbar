@@ -1,0 +1,13 @@
+docs/.vitepress/cache
+vendor/**/composer.json
+vendor/bin/var-dump-server
+vendor/phpstan/phpstan
+vendor/psr/log/Psr/Log/Test
+vendor/psr/log/Psr/Log/Test
+vendor/symfony/uid/Command
+vendor/symfony/var-dumper/Command
+vendor/symfony/var-dumper/Resources/bin
+vendor/symfony/var-dumper/Server
+vendor/symfony/var-dumper/Test
+vendor/bin
+vendor/mcaskill/composer-exclude-files

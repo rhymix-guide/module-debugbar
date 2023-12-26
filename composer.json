@@ -1,0 +1,44 @@
+{
+  "name": "kkigomi/rxmodule-debugbar",
+  "authors": [
+    {
+      "name": "kkigomi",
+      "email": "kkigomi@gmail.com"
+    }
+  ],
+  "license": "GPL-2.0-or-later",
+  "config": {
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "mcaskill/composer-exclude-files": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Kkigomi\\RxModule\\Debugbar\\Src\\": "src/"
+    },
+    "files": [
+      "src/function.php"
+    ]
+  },
+  "extra": {
+    "exclude-from-files": [
+      "symfony/var-dumper/Resources/functions/dump.php"
+    ]
+  },
+  "scripts": {
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+  },
+  "require": {
+    "php": "^7.4",
+    "ext-mbstring": "*",
+    "maximebf/debugbar": "^1.19"
+  },
+  "replace": {
+    "symfony/polyfill-mbstring": "*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "mcaskill/composer-exclude-files": "^3.0"
+  }
+}
