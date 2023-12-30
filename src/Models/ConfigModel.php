@@ -71,8 +71,8 @@ class ConfigModel
 
     public function printableDebugbar(): bool
     {
-            && !in_array('panel', config('debug.display_type'))
         return config('debug.enabled')
+            && in_array('panel', config('debug.display_type'))
             && Debug::isEnabledForCurrentUser();
     }
 
