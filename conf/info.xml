@@ -2,7 +2,7 @@
 <module version="0.2">
     <title xml:lang="ko">KG Debugbar</title>
     <description xml:lang="ko">라이믹스용 PHPDebugBar</description>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <date>2023-12-31</date>
 
     <author email_address="kkigomi@gmail.com" link="https://github.com/kkigomi">
