@@ -32,7 +32,7 @@ class RhymixFileStorage extends FileStorage
 
         $output = [];
         $output[] = '<?php';
-        $output[] = "if (!defined('RX_VERSION')) { exit; }";
+        $output[] = "if (!defined('RX_VERSION')) { header('HTTP/1.1 404 Not Found'); exit; }";
         $output[] = 'return ' . var_export($data, true) . ';';
 
         Storage::write($this->makeFilename($id), implode(PHP_EOL, $output));
