@@ -3,7 +3,7 @@
         'name' => 'kkigomi/rxmodule-debugbar',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4a31180c831a8be63307c31267cb086679c90dbb',
+        'reference' => 'd733b5c764cc580df880403332c00a4985a21661',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'kkigomi/rxmodule-debugbar' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4a31180c831a8be63307c31267cb086679c90dbb',
+            'reference' => 'd733b5c764cc580df880403332c00a4985a21661',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

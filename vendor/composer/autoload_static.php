@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite840f377f21b986e667728723cb3fc1a
+class ComposerStaticInit1d7ff4069bceab7bdaeace8c0e1a7947
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -20,10 +20,6 @@ class ComposerStaticInite840f377f21b986e667728723cb3fc1a
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-        ),
-        'K' => 
-        array (
-            'Kkigomi\\RxModule\\Debugbar\\Src\\' => 30,
         ),
         'D' => 
         array (
@@ -43,10 +39,6 @@ class ComposerStaticInite840f377f21b986e667728723cb3fc1a
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Kkigomi\\RxModule\\Debugbar\\Src\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'DebugBar\\' => 
         array (
@@ -93,17 +85,6 @@ class ComposerStaticInite840f377f21b986e667728723cb3fc1a
         'DebugBar\\Storage\\PdoStorage' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Storage/PdoStorage.php',
         'DebugBar\\Storage\\RedisStorage' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Storage/RedisStorage.php',
         'DebugBar\\Storage\\StorageInterface' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Storage/StorageInterface.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Controllers\\AdminController' => __DIR__ . '/../..' . '/src/Controllers/AdminController.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Controllers\\DebugbarController' => __DIR__ . '/../..' . '/src/Controllers/DebugbarController.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Debugbar\\DataCollector\\MessageCollector' => __DIR__ . '/../..' . '/src/Debugbar/DataCollector/MessageCollector.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Debugbar\\DataCollector\\RhymixDataCollector' => __DIR__ . '/../..' . '/src/Debugbar/DataCollector/RhymixDataCollector.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Debugbar\\DataCollector\\RhymixErrorCollector' => __DIR__ . '/../..' . '/src/Debugbar/DataCollector/RhymixErrorCollector.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Debugbar\\DataCollector\\RhymixQueryCollector' => __DIR__ . '/../..' . '/src/Debugbar/DataCollector/RhymixQueryCollector.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Debugbar\\Storage\\RhymixFileStorage' => __DIR__ . '/../..' . '/src/Debugbar/Storage/RhymixFileStorage.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Debugbar\\Uuid7IdGenerator' => __DIR__ . '/../..' . '/src/Debugbar/Uuid7IdGenerator.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\EventHandler' => __DIR__ . '/../..' . '/src/EventHandler.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Models\\ConfigModel' => __DIR__ . '/../..' . '/src/Models/ConfigModel.php',
-        'Kkigomi\\RxModule\\Debugbar\\Src\\Module' => __DIR__ . '/../..' . '/src/Module.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
@@ -189,9 +170,9 @@ class ComposerStaticInite840f377f21b986e667728723cb3fc1a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite840f377f21b986e667728723cb3fc1a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite840f377f21b986e667728723cb3fc1a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite840f377f21b986e667728723cb3fc1a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1d7ff4069bceab7bdaeace8c0e1a7947::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1d7ff4069bceab7bdaeace8c0e1a7947::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1d7ff4069bceab7bdaeace8c0e1a7947::$classMap;
 
         }, null, ClassLoader::class);
     }
