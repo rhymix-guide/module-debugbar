@@ -16,7 +16,9 @@ use Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector\RhymixErrorCollector;
 use Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector\RhymixQueryCollector;
 use Kkigomi\RxModule\Debugbar\Src\Debugbar\Storage\RhymixFileStorage;
 use Kkigomi\RxModule\Debugbar\Src\Debugbar\Uuid7IdGenerator;
+use Kkigomi\RxModule\Debugbar\Src\DebugbarHelper;
 use Kkigomi\RxModule\Debugbar\Src\Module;
+use Rhymix\Framework\Debug;
 
 class DebugbarController
 {
@@ -118,6 +120,13 @@ class DebugbarController
 
     public static function openHandle(): string
     {
+        if (
+            !DebugbarHelper::enabled()
+            || !Debug::isEnabledForCurrentUser()
+        ) {
+            return '';
+        }
+
         $openHandler = new OpenHandler(static::$debugbar);
 
         return $openHandler->handle(null, false, false);
