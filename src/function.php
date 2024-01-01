@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Rhymix\Framework\Debug;
+use Kkigomi\RxModule\Debugbar\Src\DebugbarHelper;
 use Symfony\Component\VarDumper\VarDumper;
 
 if (!function_exists('dump')) {
@@ -11,7 +11,7 @@ if (!function_exists('dump')) {
      */
     function dump($var, ...$moreVars)
     {
-        if (!Debug::isEnabledForCurrentUser()) {
+        if (!DebugbarHelper::dumpable()) {
             return;
         }
 
@@ -36,7 +36,7 @@ if (!function_exists('dd')) {
      */
     function dd(...$vars)
     {
-        if (!Debug::isEnabledForCurrentUser()) {
+        if (!DebugbarHelper::dumpable()) {
             return;
         }
 

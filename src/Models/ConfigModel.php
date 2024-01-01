@@ -52,7 +52,6 @@ class ConfigModel
         return ($this->config->enable ?? 'N') === 'Y';
     }
 
-
     /**
      * 모듈 활성화
      */
@@ -67,13 +66,6 @@ class ConfigModel
     public function disable(): void
     {
         $this->config->enable = 'N';
-    }
-
-    public function printableDebugbar(): bool
-    {
-        return config('debug.enabled')
-            && in_array('panel', config('debug.display_type'))
-            && Debug::isEnabledForCurrentUser();
     }
 
     /**

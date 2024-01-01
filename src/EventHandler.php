@@ -19,7 +19,7 @@ class EventHandler extends Module
      */
     public function beforeModuleHandlerInit(): void
     {
-        if (Context::getRequestVars()->act === 'getDebugbarHandle') {
+        if (!DebugbarHelper::stackable()) {
             return;
         }
 
@@ -36,19 +36,13 @@ class EventHandler extends Module
      */
     public function afterDisplay(&$output): void
     {
-        // openHandle() 호출일 때는 처리하지 않음
-        if (Context::getRequestVars()->act == 'getDebugbarHandle') {
-            return;
-        }
-
-        $config = new ConfigModel();
-        if (!$config->printableDebugbar()) {
+        if (!DebugbarHelper::stackable()) {
             return;
         }
 
         DebugbarController::boot();
 
-        if (Context::getResponseMethod() == 'HTML') {
+        if (DebugbarHelper::printable() && Context::getResponseMethod() === 'HTML') {
             $html = DebugbarController::render();
             $output = self::replaceLast('</body>', $html . '</body>', $output);
         } else {
