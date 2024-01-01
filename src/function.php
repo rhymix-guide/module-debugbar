@@ -8,17 +8,18 @@ use Symfony\Component\VarDumper\VarDumper;
 if (!function_exists('dump')) {
     /**
      * @author Nicolas Grekas <p@tchwork.com>
+     * @param mixed $var
+     * @param mixed ...$moreVars
+     * @return mixed
      */
     function dump($var, ...$moreVars)
     {
-        if (!DebugbarHelper::dumpable()) {
-            return;
-        }
+        if (DebugbarHelper::dumpable()) {
+            VarDumper::dump($var);
 
-        VarDumper::dump($var);
-
-        foreach ($moreVars as $v) {
-            VarDumper::dump($v);
+            foreach ($moreVars as $v) {
+                VarDumper::dump($v);
+            }
         }
 
         if (1 < func_num_args()) {
@@ -32,6 +33,7 @@ if (!function_exists('dump')) {
 if (!function_exists('dd')) {
     /**
      * @author Nicolas Grekas <p@tchwork.com>
+     * @param mixed ...$vars
      * @return never|void
      */
     function dd(...$vars)

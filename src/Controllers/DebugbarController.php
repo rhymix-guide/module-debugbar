@@ -66,7 +66,9 @@ class DebugbarController
         self::$debugbar->addCollector(new MemoryCollector());
 
         // HtmlVarDumper
+        // @phpstan-ignore-next-line
         self::$debugbar->getCollector('messages')->useHtmlVarDumper();
+        // @phpstan-ignore-next-line
         self::$debugbar->getCollector('request')->useHtmlVarDumper();
     }
 

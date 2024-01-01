@@ -8,10 +8,20 @@ use Rhymix\Framework\Session;
 
 class DebugbarHelper
 {
+    /**
+     * Undocumented variable
+     *
+     * @var string[]
+     */
     protected static array $excludeActions = [
         'getDebugbarHandle',
         'dispEditorFrame',
     ];
+    /**
+     * Undocumented variable
+     *
+     * @var string[]
+     */
     protected static array $ignoreActions = [
         'getDebugbarHandle',
     ];

@@ -7,13 +7,16 @@ namespace Kkigomi\RxModule\Debugbar\Src;
 include_once __DIR__ . '/../vendor/autoload.php';
 
 use Context;
-use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
-use ModuleObject;
 use Kkigomi\RxModule\Debugbar\Src\Controllers\AdminController;
 use Kkigomi\RxModule\Debugbar\Src\Controllers\DebugbarController;
+use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
+use ModuleObject;
 
 class Module extends ModuleObject
 {
+    /**
+     * @uses \ModuleHandler::procModule()
+     */
     public function dispDebugbarAdminConfig(): void
     {
         Context::set('kgDebugbarConfig', new ConfigModel());
@@ -25,6 +28,8 @@ class Module extends ModuleObject
 
     /**
      * 관리자 설정 저장 액션
+     *
+     * @uses \ModuleHandler::procModule()
      * @return void|\BaseObject
      */
     public function procDebugbarAdminConfig()
@@ -40,6 +45,9 @@ class Module extends ModuleObject
         $this->setRedirectUrl(Context::get('success_return_url'));
     }
 
+    /**
+     * @uses \ModuleHandler::procModule()
+     */
     public function getDebugbarHandle(): void
     {
         Context::setResponseMethod('JSON');

@@ -16,6 +16,8 @@ class EventHandler extends Module
 {
     /**
      * shutdown 시 디버그바 데이터 저장
+     *
+     * @uses \ModuleHandler::triggerCall()
      */
     public function beforeModuleHandlerInit(): void
     {
@@ -32,6 +34,7 @@ class EventHandler extends Module
     }
 
     /**
+     * @uses \ModuleHandler::triggerCall()
      * @param string $output
      */
     public function afterDisplay(&$output): void
@@ -52,8 +55,10 @@ class EventHandler extends Module
 
     /**
      * 관리자 대시보드에 디버그 모드 활성화 정보를 표시
+     *
+     * @uses \ModuleHandler::triggerCall()
      */
-    public static function adminDashboard(object $object)
+    public static function adminDashboard(object $object): void
     {
         if (!config('debug.enabled')) {
             return;
