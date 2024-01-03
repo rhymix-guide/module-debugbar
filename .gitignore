@@ -12,3 +12,4 @@ vendor/symfony/var-dumper/Test
 vendor/bin
 vendor/mcaskill/composer-exclude-files
 docs/.vitepress/dist
+phpstan.neon

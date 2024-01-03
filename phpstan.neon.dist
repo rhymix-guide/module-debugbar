@@ -1,12 +1,11 @@
 parameters:
-	level: 1
+	level: 6
 	phpVersion: 70400
 	paths:
 		- src
 	bootstrapFiles:
 		- ../../common/autoload.php
 		- vendor/autoload.php
-	editorUrl: 'vscode://file/%%file%%:%%line%%'
 	universalObjectCratesClasses:
 		- BaseObject
 	dynamicConstantNames:
