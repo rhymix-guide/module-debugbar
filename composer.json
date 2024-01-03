@@ -1,5 +1,4 @@
 {
-  "name": "kkigomi/rxmodule-debugbar",
   "authors": [
     {
       "name": "kkigomi",
@@ -9,6 +8,8 @@
   "license": "GPL-2.0-or-later",
   "config": {
     "optimize-autoloader": true,
+    "platform-check": false,
+    "prepend-autoloader": false,
     "allow-plugins": {
       "mcaskill/composer-exclude-files": true
     }
