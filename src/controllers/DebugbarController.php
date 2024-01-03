@@ -10,14 +10,14 @@ use DebugBar\DataCollector\RequestDataCollector;
 use DebugBar\DataCollector\TimeDataCollector;
 use DebugBar\DebugBar;
 use DebugBar\OpenHandler;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector\MessageCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector\RhymixDataCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector\RhymixErrorCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector\RhymixQueryCollector;
+use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\MessageCollector;
+use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\RhymixDataCollector;
+use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\RhymixErrorCollector;
+use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\RhymixQueryCollector;
 use Kkigomi\RxModule\Debugbar\Src\Debugbar\Storage\RhymixFileStorage;
 use Kkigomi\RxModule\Debugbar\Src\Debugbar\Uuid7IdGenerator;
 use Kkigomi\RxModule\Debugbar\Src\DebugbarHelper;
-use Kkigomi\RxModule\Debugbar\Src\Module;
+use Kkigomi\RxModule\Debugbar\Src\ModuleBase;
 use Rhymix\Framework\Debug;
 
 class DebugbarController
@@ -86,7 +86,7 @@ class DebugbarController
 
         self::$rendered = true;
 
-        $oModuel = Module::getInstance();
+        $oModuel = ModuleBase::getInstance();
 
         $debugbarRenderer = self::$debugbar->getJavascriptRenderer(
             "/modules/{$oModuel->module}/public/debugbar",

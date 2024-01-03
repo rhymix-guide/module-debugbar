@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Debugbar\DataCollector;
+namespace Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector;
 
 use DebugBar\DataCollector\MessagesAggregateInterface;
 use DebugBar\DataCollector\MessagesCollector;

@@ -9,10 +9,10 @@ include_once __DIR__ . '/../vendor/autoload.php';
 use Context;
 use Kkigomi\RxModule\Debugbar\Src\Controllers\DebugbarController;
 use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
-use Kkigomi\RxModule\Debugbar\Src\Module;
+use Kkigomi\RxModule\Debugbar\Src\ModuleBase;
 use Rhymix\Framework\Template;
 
-class EventHandler extends Module
+class EventHandler extends ModuleBase
 {
     /**
      * shutdown 시 디버그바 데이터 저장
@@ -64,7 +64,7 @@ class EventHandler extends Module
             return;
         }
 
-        $oTemplate = new Template(Module::getInstance()->module_path . '/views/admin', 'rx-dashboard');
+        $oTemplate = new Template(ModuleBase::getInstance()->module_path . '/views/admin', 'rx-dashboard');
 
         $config = [
             'debug' => [

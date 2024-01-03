@@ -6,14 +6,14 @@
     </namespaces>
 
     <classes>
-        <class type="default" name="Src\Module" />
-        <class type="install" name="Src\Module" />
+        <class type="default" name="Src\ModuleBase" />
+        <class type="install" name="Src\ModuleBase" />
     </classes>
 
     <actions>
         <!-- 설정 페이지 -->
-        <action name="dispDebugbarAdminConfig" class="Src\Module" />
-        <action name="getDebugbarHandle" class="Src\Module" />
+        <action name="dispDebugbarAdminConfig" class="Src\ModuleBase" />
+        <action name="getDebugbarHandle" class="Src\ModuleBase" />
     </actions>
 
     <eventHandlers>

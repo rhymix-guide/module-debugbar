@@ -3,7 +3,6 @@
 namespace Kkigomi\RxModule\Debugbar\Src;
 
 use Rhymix\Framework\Debug;
-use Rhymix\Framework\Helpers\SessionHelper;
 use Rhymix\Framework\Session;
 
 class DebugbarHelper

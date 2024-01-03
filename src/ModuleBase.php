@@ -12,7 +12,7 @@ use Kkigomi\RxModule\Debugbar\Src\Controllers\DebugbarController;
 use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
 use ModuleObject;
 
-class Module extends ModuleObject
+class ModuleBase extends ModuleObject
 {
     /**
      * @uses \ModuleHandler::procModule()
