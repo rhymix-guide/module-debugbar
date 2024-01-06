@@ -54,6 +54,17 @@ class EventHandler extends DebugbarModule
         }
     }
 
+    public static function beforeDisplay()
+    {
+        if (!DebugbarHelper::stackable()) {
+            return;
+        }
+
+        DebugbarController::boot();
+
+        DebugbarController::renderHead();
+    }
+
     /**
      * 관리자 대시보드에 디버그 모드 활성화 정보를 표시
      *

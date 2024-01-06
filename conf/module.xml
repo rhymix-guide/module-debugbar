@@ -20,6 +20,7 @@
         <!-- shutdown 핸들러 등록 -->
         <eventHandler before="moduleHandler.init" class="Src\EventHandler" method="beforeModuleHandlerInit" />
         <!-- 디버그바 출력 -->
+        <eventHandler before="display" class="Src\EventHandler" method="beforeDisplay" />
         <eventHandler after="display" class="Src\EventHandler" method="afterDisplay" />
         <eventHandler before="admin.dashboard" class="Src\EventHandler" method="adminDashboard" />
     </eventHandlers>

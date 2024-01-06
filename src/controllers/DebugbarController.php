@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kkigomi\Module\Debugbar\Src\Controllers;
 
+use Context;
 use DebugBar\DataCollector\MemoryCollector;
 use DebugBar\DataCollector\PhpInfoCollector;
 use DebugBar\DataCollector\RequestDataCollector;
@@ -26,6 +27,7 @@ class DebugbarController
      * 디버그바 인스턴스
      */
     protected static DebugBar $debugbar;
+    protected static bool $booted = false;
     /**
      * HTML 렌더링 여부
      */
@@ -48,6 +50,11 @@ class DebugbarController
      */
     public static function boot(): void
     {
+        if (self::$booted) {
+            return;
+        }
+
+        self::$booted = true;
         self::$debugbar = new DebugBar();
 
         // 로그 저장
@@ -74,6 +81,42 @@ class DebugbarController
         self::$debugbar->getCollector('request')->useHtmlVarDumper();
     }
 
+    public static function renderHead(): void
+    {
+        if (self::isStored()) {
+            return;
+        }
+
+        $oModuel = DebugbarModule::getInstance();
+
+        $debugbarRenderer = self::$debugbar->getJavascriptRenderer(
+            \RX_BASEURL . "modules/{$oModuel->module}/public/debugbar",
+            "{$oModuel->module_path}public/debugbar"
+        );
+
+        [$cssFiles, $jsFiles, $inlineCss, $inlineJs, $inlineHead] = $debugbarRenderer->getAssets();
+
+        foreach ($cssFiles as $file) {
+            Context::loadFile($file);
+        }
+
+        foreach ($inlineCss as $content) {
+            Context::addHtmlFooter('<style type="text/css">' . $content . '</style>');
+        }
+
+        foreach ($jsFiles as $file) {
+            Context::loadFile($file, 'body');
+        }
+
+        foreach ($inlineJs as $content) {
+            Context::addHtmlFooter("<script>{$content}</script>");
+        }
+
+        foreach ($inlineHead as $content) {
+            Context::addHtmlFooter($content);
+        }
+    }
+
     /**
      * HTML 렌더링
      * @return string|void
@@ -89,14 +132,13 @@ class DebugbarController
         $oModuel = DebugbarModule::getInstance();
 
         $debugbarRenderer = self::$debugbar->getJavascriptRenderer(
-            "/modules/{$oModuel->module}/public/debugbar",
+            \RX_BASEURL . "modules/{$oModuel->module}/public/debugbar",
             "{$oModuel->module_path}public/debugbar"
         );
 
         $debugbarRenderer->setOpenHandlerUrl(\RX_BASEURL . '?module=debugbar&act=getDebugbarHandle');
 
-        $html = $debugbarRenderer->renderHead();
-        $html .= $debugbarRenderer->render(true, false);
+        $html = $debugbarRenderer->render(true, false);
 
         return $html;
     }
