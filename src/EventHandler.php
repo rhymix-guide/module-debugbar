@@ -16,15 +16,13 @@ class EventHandler extends DebugbarModule
     /**
      * shutdown 시 디버그바 데이터 저장
      *
-     * @uses \ModuleHandler::triggerCall()
+     * @see \ModuleHandler::__construct()
      */
     public function beforeModuleHandlerInit(): void
     {
         if (!DebugbarHelper::stackable()) {
             return;
         }
-
-
 
         register_shutdown_function(function () {
             if (!DebugbarController::isStored()) {
@@ -35,18 +33,32 @@ class EventHandler extends DebugbarModule
     }
 
     /**
-     * @uses \ModuleHandler::triggerCall()
-     * @param string $output
+     * @see \DisplayHandler::printContent()
      */
-    public function afterDisplay(&$output): void
+    public static function beforeDisplay(): void
     {
-        if (!DebugbarHelper::stackable()) {
+        if (!DebugbarHelper::renderable() || Context::getResponseMethod() !== 'HTML') {
             return;
         }
 
         DebugbarController::boot();
+        DebugbarController::renderHead();
+    }
 
-        if (DebugbarHelper::printable() && Context::getResponseMethod() === 'HTML') {
+    /**
+     * @see \DisplayHandler::printContent()
+     * @param string $output
+     */
+    public function afterDisplay(&$output): void
+    {
+        if (!DebugbarHelper::renderable() || !DebugbarHelper::stackable()) {
+            return;
+        }
+
+
+        DebugbarController::boot();
+
+        if (Context::getResponseMethod() === 'HTML') {
             $html = DebugbarController::render();
             $output = self::replaceLast('</body>', $html . '</body>', $output);
         } else {
@@ -54,21 +66,10 @@ class EventHandler extends DebugbarModule
         }
     }
 
-    public static function beforeDisplay()
-    {
-        if (!DebugbarHelper::stackable()) {
-            return;
-        }
-
-        DebugbarController::boot();
-
-        DebugbarController::renderHead();
-    }
-
     /**
      * 관리자 대시보드에 디버그 모드 활성화 정보를 표시
      *
-     * @uses \ModuleHandler::triggerCall()
+     * @see ~/modules/admin/tpl/index.html
      */
     public function adminDashboard(object $object): void
     {

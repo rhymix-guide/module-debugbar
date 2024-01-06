@@ -2,6 +2,7 @@
 
 namespace Kkigomi\Module\Debugbar\Src;
 
+use Context;
 use Rhymix\Framework\Debug;
 use Rhymix\Framework\Session;
 
@@ -40,17 +41,22 @@ class DebugbarHelper
     /**
      * 디버그 패널을 출력할 수 있는지 확인
      */
-    public static function printable(string $actionName = null): bool
+    public static function renderable(string $actionName = null): bool
     {
+        // 설정
         if (!static::enabled() || !Debug::isEnabledForCurrentUser()) {
             return false;
         }
 
+        // 제외 액션
         if (!$actionName) {
-            $actionName = \Context::getRequestVars()->act;
+            $actionName = Context::getRequestVars()->act;
+        }
+        if (in_array($actionName, static::$excludeActions)) {
+            return false;
         }
 
-        return !in_array($actionName, static::$excludeActions);
+        return true;
     }
 
     /**
@@ -58,12 +64,12 @@ class DebugbarHelper
      */
     public static function stackable(string $actionName = null): bool
     {
-        if (!static::enabled()) {
+        if (!static::enabled() || !Debug::isEnabledForCurrentUser()) {
             return false;
         }
 
         if (!$actionName) {
-            $actionName = \Context::getRequestVars()->act;
+            $actionName = Context::getRequestVars()->act;
         }
 
         return !in_array($actionName, static::$ignoreActions);
