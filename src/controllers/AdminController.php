@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Controllers;
+namespace Kkigomi\Module\Debugbar\Src\Controllers;
 
-use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
+use Kkigomi\Module\Debugbar\Src\Models\ConfigModel;
 
 class AdminController
 {

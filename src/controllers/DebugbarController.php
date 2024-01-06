@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Controllers;
+namespace Kkigomi\Module\Debugbar\Src\Controllers;
 
 use DebugBar\DataCollector\MemoryCollector;
 use DebugBar\DataCollector\PhpInfoCollector;
@@ -10,14 +10,14 @@ use DebugBar\DataCollector\RequestDataCollector;
 use DebugBar\DataCollector\TimeDataCollector;
 use DebugBar\DebugBar;
 use DebugBar\OpenHandler;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\MessageCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\RhymixDataCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\RhymixErrorCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector\RhymixQueryCollector;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\Storage\RhymixFileStorage;
-use Kkigomi\RxModule\Debugbar\Src\Debugbar\Uuid7IdGenerator;
-use Kkigomi\RxModule\Debugbar\Src\DebugbarHelper;
-use Kkigomi\RxModule\Debugbar\Src\ModuleBase;
+use Kkigomi\Module\Debugbar\Src\Debugbar\Collector\MessageCollector;
+use Kkigomi\Module\Debugbar\Src\Debugbar\Collector\RhymixDataCollector;
+use Kkigomi\Module\Debugbar\Src\Debugbar\Collector\RhymixErrorCollector;
+use Kkigomi\Module\Debugbar\Src\Debugbar\Collector\RhymixQueryCollector;
+use Kkigomi\Module\Debugbar\Src\Debugbar\Storage\RhymixFileStorage;
+use Kkigomi\Module\Debugbar\Src\Debugbar\Uuid7IdGenerator;
+use Kkigomi\Module\Debugbar\Src\DebugbarHelper;
+use Kkigomi\Module\Debugbar\Src\DebugbarModule;
 use Rhymix\Framework\Debug;
 
 class DebugbarController
@@ -86,7 +86,7 @@ class DebugbarController
 
         self::$rendered = true;
 
-        $oModuel = ModuleBase::getInstance();
+        $oModuel = DebugbarModule::getInstance();
 
         $debugbarRenderer = self::$debugbar->getJavascriptRenderer(
             "/modules/{$oModuel->module}/public/debugbar",

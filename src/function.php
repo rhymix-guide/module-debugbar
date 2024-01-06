@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Kkigomi\RxModule\Debugbar\Src\DebugbarHelper;
+use Kkigomi\Module\Debugbar\Src\DebugbarHelper;
 use Symfony\Component\VarDumper\VarDumper;
 
 if (!function_exists('dump')) {

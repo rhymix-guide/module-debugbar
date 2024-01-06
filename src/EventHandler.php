@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src;
+namespace Kkigomi\Module\Debugbar\Src;
 
 include_once __DIR__ . '/../vendor/autoload.php';
 
 use Context;
-use Kkigomi\RxModule\Debugbar\Src\Controllers\DebugbarController;
-use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
-use Kkigomi\RxModule\Debugbar\Src\ModuleBase;
+use Kkigomi\Module\Debugbar\Src\Controllers\DebugbarController;
+use Kkigomi\Module\Debugbar\Src\DebugbarModule;
 use Rhymix\Framework\Template;
 
-class EventHandler extends ModuleBase
+class EventHandler extends DebugbarModule
 {
     /**
      * shutdown 시 디버그바 데이터 저장
@@ -24,6 +23,8 @@ class EventHandler extends ModuleBase
         if (!DebugbarHelper::stackable()) {
             return;
         }
+
+
 
         register_shutdown_function(function () {
             if (!DebugbarController::isStored()) {
@@ -58,13 +59,13 @@ class EventHandler extends ModuleBase
      *
      * @uses \ModuleHandler::triggerCall()
      */
-    public static function adminDashboard(object $object): void
+    public function adminDashboard(object $object): void
     {
         if (!config('debug.enabled')) {
             return;
         }
 
-        $oTemplate = new Template(ModuleBase::getInstance()->module_path . '/views/admin', 'rx-dashboard');
+        $oTemplate = new Template(DebugbarModule::getInstance()->module_path . '/views/admin', 'rx-dashboard');
 
         $config = [
             'debug' => [

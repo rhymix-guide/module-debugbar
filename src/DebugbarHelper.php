@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src;
+namespace Kkigomi\Module\Debugbar\Src;
 
 use Rhymix\Framework\Debug;
 use Rhymix\Framework\Session;

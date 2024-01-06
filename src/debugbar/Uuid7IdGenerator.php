@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Debugbar;
+namespace Kkigomi\Module\Debugbar\Src\Debugbar;
 
 use DebugBar\RequestIdGeneratorInterface;
 use Rhymix\Framework\Security;

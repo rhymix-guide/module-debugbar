@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Debugbar\Collector;
+namespace Kkigomi\Module\Debugbar\Src\Debugbar\Collector;
 
 use DebugBar\DataCollector;
 use DebugBar\DataCollector\AssetProvider;

@@ -2,18 +2,18 @@
 <module>
     <!-- 네임스페이스 -->
     <namespaces>
-        <namespace name="Kkigomi\RxModule\Debugbar" />
+        <namespace name="Kkigomi\Module\Debugbar" />
     </namespaces>
 
     <classes>
-        <class type="default" name="Src\ModuleBase" />
-        <class type="install" name="Src\ModuleBase" />
+        <class type="default" name="Src\DebugbarModule" />
+        <class type="install" name="Src\DebugbarModule" />
     </classes>
 
     <actions>
         <!-- 설정 페이지 -->
-        <action name="dispDebugbarAdminConfig" class="Src\ModuleBase" />
-        <action name="getDebugbarHandle" class="Src\ModuleBase" />
+        <action name="dispDebugbarAdminConfig" class="Src\DebugbarModule" />
+        <action name="getDebugbarHandle" class="Src\DebugbarModule" />
     </actions>
 
     <eventHandlers>

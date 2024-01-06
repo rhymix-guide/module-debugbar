@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Models;
+namespace Kkigomi\Module\Debugbar\Src\Models;
 
 use ModuleController;
 use ModuleModel;
-use Rhymix\Framework\Debug;
 
 /**
  * 디버그바 모듈의 설정을 다루는 모델

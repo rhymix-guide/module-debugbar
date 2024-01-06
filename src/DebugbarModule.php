@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src;
+namespace Kkigomi\Module\Debugbar\Src;
 
 include_once __DIR__ . '/../vendor/autoload.php';
 
 use Context;
-use Kkigomi\RxModule\Debugbar\Src\Controllers\AdminController;
-use Kkigomi\RxModule\Debugbar\Src\Controllers\DebugbarController;
-use Kkigomi\RxModule\Debugbar\Src\Models\ConfigModel;
+use Kkigomi\Module\Debugbar\Src\Controllers\AdminController;
+use Kkigomi\Module\Debugbar\Src\Controllers\DebugbarController;
+use Kkigomi\Module\Debugbar\Src\Models\ConfigModel;
 use ModuleObject;
 
-class ModuleBase extends ModuleObject
+class DebugbarModule extends ModuleObject
 {
     /**
      * @uses \ModuleHandler::procModule()

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kkigomi\RxModule\Debugbar\Src\Debugbar\Storage;
+namespace Kkigomi\Module\Debugbar\Src\Debugbar\Storage;
 
 use DebugBar\Storage\FileStorage;
 use Rhymix\Framework\Storage;
