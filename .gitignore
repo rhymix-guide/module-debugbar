@@ -13,3 +13,4 @@ vendor/bin
 vendor/mcaskill/composer-exclude-files
 docs/.vitepress/dist
 phpstan.neon
+vendor/wikimedia/composer-merge-plugin
