@@ -50,7 +50,7 @@ class DebugbarHelper
 
         // 제외 액션
         if (!$actionName) {
-            $actionName = Context::getRequestVars()->act;
+            $actionName = Context::getRequestVars()->act ?? '';
         }
         if (in_array($actionName, static::$excludeActions)) {
             return false;
@@ -69,7 +69,7 @@ class DebugbarHelper
         }
 
         if (!$actionName) {
-            $actionName = Context::getRequestVars()->act;
+            $actionName = Context::getRequestVars()->act ?? '';
         }
 
         return !in_array($actionName, static::$ignoreActions);
