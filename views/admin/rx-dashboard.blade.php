@@ -4,6 +4,10 @@
         <dl>
             <dt>출력 대상</dt>
             <dd>{{ $debug['display_to'] }}</dd>
+            <dt>디버그 로그 파일 용량</dt>
+            <dd>합계: <code>{{ $debug['fileSizeTotal'] }}</code></dd>
+            <dd>- Rhymix: <code>{{ $debug['fileSizeRhymix'] }}</code> (file/debug)</dd>
+            <dd>- Debugbar: <code>{{ $debug['fileSizeKgStack'] }}</code> (file/debug/kg_debugbar_stack)</dd>
         </dl>
     </div>
 

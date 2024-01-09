@@ -77,18 +77,64 @@ class EventHandler extends DebugbarModule
             return;
         }
 
+        $fileSizeRhymix = self::GetDirectorySize(\RX_BASEDIR . '/files/debug');
+        $fileSizeKgStack = self::GetDirectorySize(\RX_BASEDIR . '/files/debug/kg_deburbar_stack');
+        $fileSizeTotal = $fileSizeRhymix + $fileSizeKgStack;
+
         $oTemplate = new Template(DebugbarModule::getInstance()->module_path . '/views/admin', 'rx-dashboard');
 
         $config = [
             'debug' => [
                 'display_type' => config('debug.display_type'),
                 'display_to' => config('debug.display_to'),
+                'fileSizeTotal' => self::sizeFormat($fileSizeTotal),
+                'fileSizeRhymix' => self::sizeFormat($fileSizeRhymix),
+                'fileSizeKgStack' => self::sizeFormat($fileSizeKgStack),
             ]
         ];
         $oTemplate->addVars($config);
         $html = $oTemplate->compile();
 
         array_unshift($object->left, $html);
+    }
+
+    protected static function GetDirectorySize(string $path): int
+    {
+        $bytestotal = 0;
+
+        foreach (\Rhymix\Framework\Storage::readDirectory($path) as $object) {
+            $bytestotal += filesize($object);
+        }
+
+        return $bytestotal;
+    }
+
+    /**
+     * 파일 사이즈를 읽기 쉬운 형태로 변환
+     *
+     * @param int $filesize 파일 사이즈
+     * @param bool $shorten 단위를 한 자리 문자로 표시
+     * @param int $decimals 소수점 자리수
+     * @param bool $binary 1024 또는 1000으로 나눈 값
+     */
+    protected static function sizeFormat(int $filesize, bool $shorten = false, $decimals = 1, ?bool $binary = true): string
+    {
+        if ($binary) {
+            $num = 1024;
+            $sizeUnits = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB');
+        } else {
+            $num = 1000;
+            $sizeUnits = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+        }
+
+        if ($shorten) {
+            $sizeUnits = array('B', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y');
+        }
+
+        $factor = floor((strlen((string) $filesize) - 1) / 3);
+        $unit = $sizeUnits[$factor] ?? end($sizeUnits);
+
+        return sprintf("%.{$decimals}f", (int) $filesize / pow($num, $factor)) . $unit;
     }
 
     /**
