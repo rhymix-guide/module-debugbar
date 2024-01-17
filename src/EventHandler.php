@@ -13,13 +13,33 @@ use Rhymix\Framework\Template;
 
 class EventHandler extends DebugbarModule
 {
+
+    protected static \ModuleHandler $moduleHandler;
+
+    public static function act(): string
+    {
+        return self::$moduleHandler->act ?? '';
+    }
+
+    public static function mid(): string
+    {
+        return self::$moduleHandler->mid ?? '';
+    }
+
+    public static function module(): string
+    {
+        return self::$moduleHandler->module ?? '';
+    }
+
     /**
      * shutdown 시 디버그바 데이터 저장
      *
      * @see \ModuleHandler::__construct()
      */
-    public function beforeModuleHandlerInit(): void
+    public function beforeModuleHandlerInit(\ModuleHandler &$triggerObject): void
     {
+        self::$moduleHandler = &$triggerObject;
+
         if (!DebugbarHelper::stackable()) {
             return;
         }

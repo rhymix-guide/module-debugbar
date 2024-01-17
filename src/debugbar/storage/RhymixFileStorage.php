@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kkigomi\Module\Debugbar\Src\Debugbar\Storage;
 
 use DebugBar\Storage\FileStorage;
+use Kkigomi\Module\Debugbar\Src\EventHandler;
 use Rhymix\Framework\Storage;
 
 class RhymixFileStorage extends FileStorage
@@ -23,12 +24,16 @@ class RhymixFileStorage extends FileStorage
 
     /**
      * {@inheritdoc}
+     * @param mixed $data
      */
     public function save($id, $data): void
     {
         if (!file_exists($this->dirname)) {
             Storage::createDirectory($this->dirname);
         }
+
+        $data['__meta']['rx_module'] = EventHandler::module();
+        $data['__meta']['rx_act'] = EventHandler::act();
 
         $output = [];
         $output[] = '<?php';
