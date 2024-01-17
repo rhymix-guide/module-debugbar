@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'kkigomi/rxmodule-debugbar',
+        'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd733b5c764cc580df880403332c00a4985a21661',
+        'reference' => '0001e02fa224a561a35f259e8e07eaf60d40e332',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'kkigomi/rxmodule-debugbar' => array(
+        '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd733b5c764cc580df880403332c00a4985a21661',
+            'reference' => '0001e02fa224a561a35f259e8e07eaf60d40e332',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -38,9 +38,9 @@
             'dev_requirement' => true,
         ),
         'phpstan/phpstan' => array(
-            'pretty_version' => '1.10.50',
-            'version' => '1.10.50.0',
-            'reference' => '06a98513ac72c03e8366b5a0cb00750b487032e4',
+            'pretty_version' => '1.10.56',
+            'version' => '1.10.56.0',
+            'reference' => '27816a01aea996191ee14d010f325434c0ee76fa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpstan/phpstan',
             'aliases' => array(),
