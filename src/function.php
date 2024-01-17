@@ -5,6 +5,21 @@ declare(strict_types=1);
 use Kkigomi\Module\Debugbar\Src\DebugbarHelper;
 use Symfony\Component\VarDumper\VarDumper;
 
+if (!function_exists('ddd')) {
+    /**
+     * @param mixed $message
+     * @param ?mixed ...$moreMessage
+     */
+    function ddd($message, ...$moreMessage): void
+    {
+        \Rhymix\Framework\Debug::addEntry($message);
+
+        foreach ($moreMessage as $message) {
+            \Rhymix\Framework\Debug::addEntry($message);
+        }
+    }
+}
+
 if (!function_exists('dump')) {
     /**
      * @author Nicolas Grekas <p@tchwork.com>
